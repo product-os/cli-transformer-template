@@ -1,6 +1,6 @@
 {
   "name": "cli-transformer-template",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "build/index.js",
   "license": "APACHE2",
@@ -19,6 +19,6 @@
     "yaml": "^1.10.0"
   },
   "versionist": {
-    "publishedAt": "2021-12-17T10:38:21.852Z"
+    "publishedAt": "2021-12-17T10:43:44.244Z"
   }
 }
