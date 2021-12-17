@@ -1,23 +1,26 @@
 import * as _ from 'lodash';
+import {$, cd, path} from 'zx'
 
 import { createOutputDir, readInput, writeOutputs } from './transformer';
 
-console.log('Template Transformer starting');
-
 const run = async () => {
 	const input = await readInput();
+	const outputDir = await createOutputDir();
+	
+	console.log(`${input.transformerContract.name} starting`);
 	console.log('input:', input.contract);
 	console.log('input directory:', input.artifactPath);
-	const outputDir = await createOutputDir();
 	console.log('output directory:', outputDir);
 
-	// TODO your code goes here. You can
-	// - inspect the input contract
-	// - process the artifact that you can find in the artifactPath
-	//   - note that the input folder is read-only!
-	// - produce some new artifact and place it in `outputDir`
+	// ❇️ TODO your code goes here:
+	// $ is a helper function that lets you easily execute any shell commands.
+	// Just install your favorite CLI in the Dockerfile.
+	// BEWARE that the input directory is read-only. 
+	cd(input.artifactPath);
+	$`tar czf ${path.join(outputDir, 'result.tar.gz')} *` // 👈 change this
+
 	const outContract = {
-		type: 'type-my-out-type@1.2.3',
+		type: 'type-my-out-type@1.2.3', // 👈 change this
 		data: {
 			someResultProperty: 1,
 		},
